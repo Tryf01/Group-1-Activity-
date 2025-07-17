@@ -1,0 +1,626 @@
+/* unified_styles.css */
+
+/* Bootstrap Integration (via CDN in HTML, custom styles extend/override) */
+
+/* Base Styles */
+:root {
+    /* Light mode variables (White & Blue Palette) */
+    --body-bg: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%); /* Very light blue gradient */
+    --container-bg: rgba(255, 255, 255, 0.85); /* Transparent White */
+    --container-border: #bbdefb; /* Light blue */
+    --text-color-primary: #1a237e; /* Darker blue for headings */
+    --text-color-secondary: #283593; /* Slightly lighter blue for secondary text */
+    --text-color-default: #37474f; /* Dark grey-blue for general text */
+    --table-bg: rgba(255, 255, 255, 0.9); /* Slightly more opaque white for tables */
+    --table-border: #e3f2fd; /* Very light blue */
+    --table-header-bg: #2196F3; /* Medium blue */
+    --table-header-color: #fff; /* White */
+    --table-row-even-bg: rgba(248, 252, 255, 0.9); /* Very light blue */
+    --table-row-hover-bg: #e1f5fe; /* Lighter blue on hover */
+    --button-primary-bg: #42A5F5; /* Standard blue */
+    --button-primary-hover-bg: #2196F3; /* Darker blue on hover */
+    --button-secondary-bg: #90CAF9; /* Lighter blue */
+    --button-secondary-hover-bg: #64B5F6; /* Medium blue on hover */
+    --button-danger-bg: #466dfb; /* Standard red */
+    --button-danger-hover-bg: #435ade; /* Darker red on hover */
+    --link-color: #1976d2; /* Standard link blue */
+    --link-hover-color: #115293; /* Darker link blue on hover */
+    --input-border: #90CAF9; /* Light blue border */
+    --input-focus-border: #42A5F5; /* Blue on focus */
+    --input-focus-shadow: rgba(66, 165, 245, 0.2); /* Blue shadow on focus */
+    --edit-link-color: #1565C0; /* Dark blue for edit */
+    --edit-link-bg: #e3f2fd; /* Very light blue */
+    --edit-link-border: #90CAF9; /* Light blue */
+    --edit-link-hover-bg: #bbdefb; /* Medium light blue */
+    --delete-link-color: #D32F2F; /* Dark red for delete */
+    --delete-link-bg: #ffebee; /* Very light red */
+    --delete-link-border: #EF9A9A; /* Light red */
+    --delete-link-hover-bg: #ffcdd2; /* Medium light red */
+    --message-info-bg: #e3f2fd; /* Light blue for info messages */
+    --message-info-border: #90CAF9; /* Light blue border */
+    --message-success-bg: #e8f5e9; /* Light green for success */
+    --message-success-color: #2e7d32; /* Dark green */
+    --message-success-border: #a5d6a7; /* Medium green */
+    --error-message-color: #D32F2F; /* Dark red */
+    --error-message-bg: #ffebee; /* Very light red */
+    --error-message-border: #EF9A9A; /* Light red */
+    --toggle-button-bg-light: #64B5F6; /* Light mode toggle background */
+    --toggle-button-hover-bg-light: #42A5F5;
+}
+
+/* Dark mode variables (Black & Red Palette) */
+body.dark-mode {
+    --body-bg: linear-gradient(135deg, #1c1c1c 0%, #0a0a0a 100%); /* Dark grey/black gradient */
+    --container-bg: rgba(44, 44, 44, 0.85); /* Transparent Darker grey */
+    --container-border: #b71c1c; /* Dark red */
+    --text-color-primary: #ffebee; /* Lightest red/white for headings */
+    --text-color-secondary: #ffcdd2; /* Lighter red for secondary text */
+    --text-color-default: #cfd8dc; /* Light grey for general text */
+    --table-bg: rgba(50, 50, 50, 0.9); /* Slightly more opaque dark grey */
+    --table-border: #8d0000; /* Darker red */
+    --table-header-bg: #b71c1c; /* Dark red */
+    --table-header-color: #fff; /* White */
+    --table-row-even-bg: rgba(58, 58, 58, 0.9); /* Dark grey for even rows */
+    --table-row-hover-bg: #4a4a4a; /* Slightly lighter dark grey on hover */
+    --button-primary-bg: #b71c1c; /* Dark red */
+    --button-primary-hover-bg: #c62828; /* Brighter red on hover */
+    --button-secondary-bg: #ef5350; /* Muted red */
+    --button-secondary-hover-bg: #e53935; /* Brighter red on hover */
+    --button-danger-bg: #ff5252; /* Accent red */
+    --button-danger-hover-bg: #ff1744; /* Brighter accent red on hover */
+    --link-color: #ff8a80; /* Light red link */
+    --link-hover-color: #ffcdd2; /* Lighter red link on hover */
+    --input-border: #ef5350; /* Red border */
+    --input-focus-border: #ef9a9a; /* Lighter red on focus */
+    --input-focus-shadow: rgba(239, 154, 154, 0.3); /* Red shadow on focus */
+    --edit-link-color: #a5d6a7; /* Light green for edit (contrast) */
+    --edit-link-bg: #424242; /* Dark grey */
+    --edit-link-border: #66bb6a; /* Green */
+    --edit-link-hover-bg: #5a5a5a; /* Lighter dark grey */
+    --delete-link-color: #ff8a80; /* Light red for delete */
+    --delete-link-bg: #424242; /* Dark grey */
+    --delete-link-border: #ef9a9a; /* Light red */
+    --delete-link-hover-bg: #5a5a5a; /* Lighter dark grey */
+    --message-info-bg: #424242; /* Dark grey for info messages */
+    --message-info-border: #8d0000; /* Dark red border */
+    --message-success-bg: #4a4a4a; /* Dark grey for success */
+    --message-success-color: #a5d6a7; /* Light green */
+    --message-success-border: #66bb6a; /* Green */
+    --error-message-color: #ffcdd2; /* Light red */
+    --error-message-bg: #424242; /* Dark grey */
+    --error-message-border: #ef9a9a; /* Light red */
+    --toggle-button-bg-dark: #b71c1c; /* Dark mode toggle background */
+    --toggle-button-hover-bg-dark: #c62828;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--body-bg);
+    color: var(--text-color-default);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center; /* Ensures horizontal centering of content */
+    align-items: center; /* Keeps vertical centering */
+    min-height: 100vh;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    /* Background image for Light Mode */
+    background-image: url('light_background.jpg'); /* Replace with your light mode image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Dark mode background image */
+body.dark-mode {
+    /* Existing dark mode styles */
+    /* Override background property to use dark mode image */
+    background-image: url('dark_background.jpg'); /* Replace with your dark mode image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container {
+    background-color: var(--container-bg);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Reduced shadow opacity */
+    padding: 30px;
+    padding-top: 130px; /* Increased padding to accommodate centered search form */
+    width: 90%;
+    max-width: 1000px;
+    box-sizing: border-box;
+    border: 1px solid var(--container-border);
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Essential for absolute positioning of children */
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+    /* --- MODIFIED: Ensures perfect centering --- */
+    margin: auto; /* This works with body's flex properties to center */
+    /* Removed: transform: translateX(-50px); */ /* No longer needed for dead center */
+}
+
+/* Specific styling for login container */
+.login-container {
+    max-width: 400px; /* Make login box smaller */
+    padding-top: 30px; /* Remove extra padding from global container style */
+}
+
+/* Specific styling for index page container to prevent excessive width */
+.index-container {
+    max-width: 600px;
+}
+
+
+h1, h2 {
+    text-align: center;
+    color: var(--text-color-primary);
+    margin-top: 0;
+    margin-bottom: 30px;
+    letter-spacing: 1.5px;
+    font-size: 2.2em;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.08);
+    position: relative;
+    padding-bottom: 10px;
+    width: 100%;
+    transition: color 0.3s ease;
+}
+
+h1::after, h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 120px; /* Adjust for H1 */
+    height: 4px;
+    background-color: var(--button-primary-bg);
+    border-radius: 2px;
+}
+
+h2::after { /* Specific width for H2 */
+    width: 80px;
+}
+
+h1.page-title { /* For index.php */
+    font-size: 2.5em;
+}
+
+/* Top Right Controls for Search and Dark Mode Toggle */
+/* This is now specific for elements *inside* a container, like the search form */
+.top-right-controls {
+    position: absolute;
+    top: 20px;
+    left: 0; /* Align to left to allow centering */
+    width: 100%; /* Take full width to center its content */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    gap: 15px;
+    align-items: center;
+    z-index: 10; /* Ensure it stays on top */
+}
+
+/* Search Form Styles */
+.search-form {
+    display: flex;
+    justify-content: center; /* Center items horizontally within the flex container */
+    flex-wrap: nowrap; /* Keep inputs and buttons on one line */
+    gap: 10px;
+    align-items: center;
+    background-color: var(--container-bg); /* Match container or slightly different */
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--container-border);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    margin: 20px auto 20px auto; /* Center the form horizontally */
+    max-width: fit-content; /* Adjust width to fit content for better centering */
+}
+
+.search-form .form-group {
+    margin-bottom: 0; /* Override default form-group margin */
+}
+
+.search-form label {
+    display: none; /* Hide labels for compact search bar */
+}
+
+.search-form input[type="text"] {
+    width: 120px; /* Make inputs smaller */
+    padding: 8px 10px;
+    margin-bottom: 0; /* Override default input margin */
+    font-size: 0.9em;
+    border-radius: 5px;
+}
+
+.search-form .button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    margin: 0; /* Remove default button margin */
+}
+/* Table Styles */
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    margin: 0 auto;
+    background: var(--table-bg);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+th, td {
+    border: 1px solid var(--table-border);
+    padding: 12px 18px;
+    text-align: left;
+    transition: border-color 0.3s ease;
+}
+
+th {
+    background-color: var(--table-header-bg);
+    color: var(--table-header-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+tr:nth-child(even) {
+    background-color: var(--table-row-even-bg);
+    transition: background-color 0.3s ease;
+}
+
+tr:hover {
+    background-color: var(--table-row-hover-bg);
+    transition: background-color 0.2s ease;
+}
+
+/* Paragraph for messages (e.g., no students found) */
+p {
+    text-align: center;
+    color: var(--text-color-default);
+    margin-top: 30px;
+    font-size: 1.1em;
+    padding: 15px;
+    background-color: var(--message-info-bg);
+    border: 1px solid var(--message-info-border);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Button Container & Buttons */
+.button-container {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.button, .back-button, .login-button, input[type="submit"] {
+    display: inline-block;
+    width: fit-content;
+    margin: 10px;
+    padding: 12px 25px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: none; /* Crucial for input[type="submit"] to remove default border */
+    cursor: pointer;
+}
+
+.button.primary, input[type="submit"].primary {
+    background-color: var(--button-primary-bg);
+}
+
+.button.primary:hover, input[type="submit"].primary:hover {
+    background-color: var(--button-primary-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.button.secondary, .back-button {
+    background-color: var(--button-secondary-bg);
+}
+
+.button.secondary:hover, .back-button:hover {
+    background-color: var(--button-secondary-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.button.danger {
+    background-color: var(--button-danger-bg);
+}
+
+.button.danger:hover {
+    background-color: var(--button-danger-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* MODIFIED: Centering for Login Button */
+.login-button {
+    background-color: var(--button-primary-bg); /* Use primary button color for login */
+    display: block; /* Make it a block element */
+    margin: 20px auto; /* Center the button horizontally with top/bottom margin */
+    width: fit-content; /* Allow button to take natural width */
+    max-width: 200px; /* Optional: Set a max width if desired */
+    padding: 10px 20px; /* Add some padding */
+    text-align: center; /* Center the text within the button */
+}
+
+.login-button:hover {
+    background-color: var(--button-primary-hover-bg);
+}
+
+/* MODIFIED: Centering for form submit buttons (e.g., Add Student, Update Student) */
+.form-submit-button, input[type="submit"].form-submit-button {
+    display: block; /* Make it a block element */
+    width: fit-content; /* Adjust width to content */
+    max-width: 250px; /* Example max-width for forms */
+    margin: 20px auto; /* Center horizontally with auto margin */
+    /* Inherits other styles from .button.primary */
+}
+
+/* MODIFIED: Centering for the back button */
+.back-button {
+    display: block; /* Make it a block-level element */
+    margin: 20px auto; /* Center it horizontally with vertical margin */
+    width: fit-content; /* Adjust width to content */
+    text-align: center; /* Center the text within the button */
+}
+
+/* Action Links (Edit/Delete) */
+.action-links {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-link {
+    color: var(--edit-link-color);
+    font-weight: bold;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    background: var(--edit-link-bg);
+    border: 1px solid var(--edit-link-border);
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.edit-link:hover {
+    background: var(--edit-link-hover-bg);
+}
+
+.delete-link {
+    color: var(--delete-link-color);
+    font-weight: bold;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    background: var(--delete-link-bg);
+    border: 1px solid var(--delete-link-border);
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.delete-link:hover {
+    background: var(--delete-link-hover-bg);
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+    text-align: center;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color-default);
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="password"], /* Added password input */
+select {
+    width: calc(100% - 20px); /* Ensure consistency for all inputs including password */
+    padding: 12px 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    background-color: var(--container-bg);
+    color: var(--text-color-default);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="password"]:focus, /* Added password input focus */
+select:focus {
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 8px var(--input-focus-shadow);
+    outline: none;
+}
+
+/* Messages */
+.success-message {
+    background-color: var(--message-success-bg);
+    color: var(--message-success-color);
+    border: 1px solid var(--message-success-border);
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.error-message {
+    color: var(--error-message-color);
+    background-color: var(--error-message-bg);
+    border: 1px solid var(--error-message-border);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Back button container for view_students.php */
+.back-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+/* Dark mode toggle switch (GLOBAL positioning and styling) */
+.dark-mode-toggle {
+    position: fixed; /* Fixed position relative to viewport */
+    top: 20px;
+    right: 20px;
+    z-index: 1000; /* Ensure it's on top of everything */
+    width: 48px; /* Fixed width for circular shape */
+    height: 48px; /* Fixed height for circular shape */
+    border-radius: 50%; /* Make it circular */
+    border: none; /* No border */
+    cursor: pointer;
+    display: flex; /* Use flex to center the icon */
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8em; /* Size of the moon/sun icon */
+    color: white; /* Color of the icon */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    /* Background color based on mode */
+    background-color: var(--toggle-button-bg-light);
+}
+
+body.dark-mode .dark-mode-toggle {
+    background-color: var(--toggle-button-bg-dark);
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    background-color: var(--toggle-button-hover-bg-light); /* Hover for light mode */
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+    background-color: var(--toggle-button-hover-bg-dark); /* Hover for dark mode */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        padding-top: 150px; /* More space for top controls when stacked */
+        /* Removed: transform: translateX(-25px); */ /* No longer needed for dead center */
+    }
+
+    .login-container {
+        max-width: 90%;
+    }
+
+    /* Adjust top-right-controls for smaller screens if it's still needed in other pages */
+    .top-right-controls {
+        flex-direction: column; /* Stack controls vertically */
+        align-items: center; /* Center horizontally when stacked */
+        right: auto; /* Remove right alignment */
+        left: 0;
+        width: 100%; /* Take more width on small screens */
+        gap: 10px; /* Reduce gap */
+    }
+
+    .search-form {
+        flex-direction: column; /* Stack search inputs/buttons */
+        width: 90%; /* Adjust width for better appearance on mobile */
+        padding: 10px;
+        margin: 10px auto 0 auto; /* Center with reduced top margin */
+    }
+
+    .search-form input[type="text"] {
+        width: calc(100% - 20px); /* Full width minus padding */
+        margin-bottom: 10px; /* Add margin between stacked inputs */
+    }
+
+    .search-form .button {
+        width: 100%; /* Full width buttons */
+        margin-bottom: 5px; /* Margin between buttons */
+    }
+
+    .dark-mode-toggle {
+        width: 40px; /* Smaller button on mobile */
+        height: 40px;
+        font-size: 1.5em; /* Smaller icon on mobile */
+        top: 15px; /* Adjust position */
+        right: 15px;
+    }
+
+    h1, h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    table, th, td {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+
+    .action-links {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .form-submit-button, input[type="submit"].form-submit-button {
+        width: 80%; /* Adjust width for mobile */
+        max-width: 250px;
+    }
+}
+
+/* unified_styles.css */
+
+/* ... existing styles ... */
+
+/* ADD THIS NEW BLOCK */
+@keyframes fadeInScale {
+    from {
+        opacity: 0; /* Starts fully transparent */
+        transform: scale(0.95); /* Starts slightly smaller */
+    }
+    to {
+        opacity: 1; /* Ends fully opaque */
+        transform: scale(1); /* Ends at normal size */
+    }
+}
+
+/* unified_styles.css */
+
+/* ... existing styles ... */
+
+/* ADD THIS NEW RULE */
+.container.fade-in-container,
+.login-container.fade-in-container {
+    animation: fadeInScale 0.5s ease-out forwards;
+    opacity: 0; /* Start hidden for the animation */
+}
